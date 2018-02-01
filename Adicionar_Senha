@@ -1,0 +1,66 @@
+Criação de Senha para planilha do excel
+
+
+'dim nome as String -> criação de variavel que recebe texto (tipo string)'
+
+Sub Auto_Open ()
+
+  sheets ("entrada").select 
+  'posionando a entrada no arquivo pela aba entrada, impede que seja visto a informação que se deseja esconder'
+  'Devera existir então uma planilha de entrada, com o nome "entrada" neste exemplo
+  dim nome as String 'nome = nome da variavel'
+  nome = InputBox ("Password")
+  if nome = "Senha desejada" then
+  'Ação se verdadeiro'
+  msgbox "Bem vindo ao Sistema"
+  sheets ("info").select "passando para a aba onde estão as informações"
+  Else 'ação se falso'
+  msgbox "Password dont match"
+  Application.Quit             'a função application define funções para o excel, a função quit, fecha o excel'
+ 
+ Endif
+ 
+ End Sub
+ 
+'Para criação de mais de uma senha'
+
+Sub Auto_Open ()
+
+  sheets ("entrada").select 'posionando a entrada no arquivo pela aba entrada, impede que seja visto a informação que se deseja esconder'
+  dim nome as String
+  nome = InputBox ("Password")
+  if nome = "Senha desejada" or nome = "Senha desejada 2" then
+  'Ação se verdadeiro'
+  msgbox "Bem vindo ao Sistema", vbCritical 'vbCritical mostra um icone de mensagem critica'
+  sheets ("info").select "passando para a aba onde estão as informações"
+  Else
+  'ação se falso'
+  msgbox "Password dont match"
+  Application.Quit             'a função application define funções para o excel, a função quit, fecha o excel'
+  Endif
+  
+ End Sub
+  
+  
+ 'Criação de senha sem diferença de maiusculas ou minusculas'
+
+ Sub Auto_Open ()
+ 
+  sheets ("entrada").select 'posionando a entrada no arquivo pela aba entrada, impede que seja visto a informação que se deseja esconder'
+  dim nomedavariavel as String
+  nome = InputBox ("Password")
+  if Ucase(nomedavariavel) = "SENHA_DESEJADA_EM_MAIUSCULO" then  'Lcase e Ucase transforma a variavel string em minuscula ou maiuscula respectivamente'
+  'Ação se verdadeiro'
+  msgbox "Bem vindo ao Sistema"
+  sheets ("info").select "passando para a aba onde estão as informações"
+  Else
+  'ação se falso'
+  msgbox "Password dont match"
+  Application.Quit             'a função application define funções para o excel, a função quit, fecha o excel'
+  Endif
+  
+ End Sub
+  
+  
+  
+  
