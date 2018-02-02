@@ -1,0 +1,6 @@
+
+
+Sendo ?? a letra da coluna, o comando ira para a ultima celula vazia da coluna especificada
+
+
+Range("??1048576").End(xlup).Offset(1,0).Select
