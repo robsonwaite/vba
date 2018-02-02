@@ -1,0 +1,32 @@
+Rotina de importartação de dados
+
+
+
+
+Sub Importar03(
+
+    Application.DisplayAlerts = False 'remoção de "píscar" de tela'
+
+    Dim Nomearquivo As String  'nomearquivo é a <variavel> em formato de texto, que recebera o nome do arquivo que se deseja importar'
+    Dim Nomearqu2 As String 'ide, recebe o no'
+    Nomearqu = Application.GetOpenFilename
+    Workbooks.Open Filename:=Nomearqu
+    Nomearqu2 = ActiveWorkbook.Name
+    
+    Range("a3").Select
+    Range(ActiveCell, ActiveCell.End(xlDown).End(xlToRight)).Copy
+    Workbooks("VBA3.xlsm").Activate
+    Range("a1048576").End(xlUp).Offset(1, 0).Select
+    ActiveCell.PasteSpecial xlPasteFormats
+    ActiveCell.PasteSpecial xlPasteValues
+    
+   
+    
+    Workbooks(Nomearqu2).Activate
+    Workbooks(Nomearqu2).Close
+     
+    
+
+    Application.DisplayAlerts = True
+
+End Sub

@@ -1,0 +1,44 @@
+Importar dados
+
+Workbooks.Open Filename:="C:\Users\Robson\Dropbox\Alura\Excel\VBA\VBA4.xlsx" 'exemplo de caminho de arquivo'
+    Range("A3:C5").Copy 'selecionar celulas que serao copiadas'
+    Workbooks("VBA4.xlsx").Close False 'false = não salvar arquivo, true salva o arquivo apos abrir-lo'
+    Range("A3").PasteSpecial 'copiar na celula especificada'
+    Range("A1").Select 'terminação ação selecionando uma tecla para n ficar com a tabela colada selecionada'
+
+
+Importar dados em mais de uma aba
+
+Sub Importar02()
+	Application.ScreenUpdating = False  'retirar a troca de tela'
+
+    Workbooks.Open Filename:="C:\Users\Robson\Dropbox\Alura\Excel\VBA\VBA4.xlsx"
+    Sheets(1).Select
+    Range("A3:C5").Copy
+    Workbooks("VBA3").Activate
+    Range("A3").PasteSpecial xlFormats
+    Range("A3").PasteSpecial xlValues
+    
+    Workbooks("VBA4").Activate
+    Sheets(2).Select
+    Range("A3:C5").Copy
+    Workbooks("VBA3").Activate
+
+    Range("a1048576").End(xlUp).Offset(1, 0).Select
+    ActiveCell.PasteSpecial xlPasteFormats
+    ActiveCell.PasteSpecial xlPasteValues                         'sempre colar embaixo do ultimo iten , sendo "a" a primeira coluna da tabela'
+    
+
+    Range("A1").Select
+
+    
+    
+    
+    Workbooks("VBA4.xlsx").Close False
+
+    Application.ScreenUpdating = True
+
+
+
+
+Application.DisplayAlerts = True    'remove os avisos que interrompem o processo do macro'

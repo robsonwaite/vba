@@ -1,0 +1,16 @@
+Ações Ao fechar
+
+
+Sub Auto_close()
+    
+
+    ActiveWorkbook.Save 'Salva o arquivo'
+    
+
+
+    MsgBox "Mensagem de saida"
+
+
+
+
+End Sub

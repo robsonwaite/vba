@@ -1,0 +1,30 @@
+Formula de Cadastramento
+
+
+Range("a1048576").End(xlup).Offset(1,0).Select
+'Sendo A a coluna desejada'
+
+Informação Dependendo da Hora
+
+If Hour(Now) < 12 Then
+            MsgBox "Bom dia"
+            ElseIf Hour(Now) < 18 Then
+                MsgBox "Boa Tarde"
+            Else
+                MsgBox "Boa Noite"
+End If
+
+
+Informação Dependendo da Hora + Rapido
+
+Select Case Hour(now)
+
+Case is < 12
+	MsgBox "Bom dia"
+Case is < 18
+	MsgBox "Boa Tarde"
+Case Else
+	MsgBox "Boa Noite"
+End Select
+
+
